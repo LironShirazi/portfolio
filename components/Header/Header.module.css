@@ -1,0 +1,107 @@
+.navbarContainer {
+  height: 5rem;
+  display: flex;
+  flex-direction: row;
+  background-color: black;
+  color: whitesmoke;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+  /* padding: 0 2em; */
+
+}
+
+.linksContainer {
+  /* gap: 1em; */
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 20rem;
+  background-color: #222222;
+  position: absolute;
+  transform: translate(0, 12rem);
+  z-index: 1;
+  font-size: 2rem;
+  text-align: center;
+  /* gap: 1rem; */
+  align-content: center;
+
+
+}
+
+.linkContainerOpen {
+
+}
+
+.linkWrapper {
+  width: 100%;
+  height: 6.4rem;
+  list-style: none;
+  border-top: #212121 solid 1px;
+  border-bottom: #363636 solid 1px;
+}
+
+.linkWrapper:hover {
+  background-color: #22222244;
+}
+
+/* hamburger Styles */
+.menu {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  padding: 0;
+}
+.line {
+  fill: none;
+  stroke: white;
+  stroke-width: 6;
+  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.line1 {
+  stroke-dasharray: 60 207;
+  stroke-width: 6;
+}
+.line2 {
+  stroke-dasharray: 60 60;
+  stroke-width: 6;
+}
+.line3 {
+  stroke-dasharray: 60 207;
+  stroke-width: 6;
+}
+.opened .line1 {
+  stroke-dasharray: 90 207;
+  stroke-dashoffset: -134;
+  stroke-width: 6;
+}
+.opened .line2 {
+  stroke-dasharray: 1 60;
+  stroke-dashoffset: -30;
+  stroke-width: 6;
+}
+.opened .line3 {
+  stroke-dasharray: 90 207;
+  stroke-dashoffset: -134;
+  stroke-width: 6;
+}
+
+@media screen and (min-width: 578px) {
+  .menu {
+    display: none;
+  }
+
+  .linksContainer {
+    display: flex;
+    gap: 1em;
+    /* align-items: center; */
+    flex-direction: row;
+    position: relative;
+    height: 100%;
+  }
+  
+}
