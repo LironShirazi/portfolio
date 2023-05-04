@@ -3,6 +3,7 @@ import styles from './Header.module.css';
 import Link from 'next/link';
 import cx from 'classnames';
 import { useState } from 'react';
+import Image from 'next/image';
 
 export default function Header () {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,19 +12,15 @@ export default function Header () {
   }
 
   return (
+    <>
     <div className={styles.navbarContainer}>
       <div>
-        <div>LS LOGO</div>
+        <div className={styles.logoContainer}>
+          <Image fill src="/myLogo.png"/>
+        </div>
       </div>
-      {isOpen && 
-      <ul className={styles.linksContainer}>
-        <li className={styles.linkWrapper}><Link href="/">Home</Link></li>
-        <li className={styles.linkWrapper}><Link href="/about">About</Link></li>
-        <li className={styles.linkWrapper}><Link href="/contact">Contact</Link></li>
-        <li className={styles.linkWrapper}><Link href="/projects">Project</Link></li> 
-      </ul>}
       <div className={styles.burgerContainer}>
-        <button className={cx(styles.menu, {
+        <button className={cx(styles.burger, {
           [styles.opened] : isOpen
         })} 
         onClick={isOpenHandler} aria-label="Main Menu">
@@ -34,6 +31,27 @@ export default function Header () {
         </svg>
       </button>
       </div>
+
+      <ul className={cx(styles.linksDesktopContainer, {
+        })}>
+          <li className={styles.linkDesktopWrapper}><Link href="/">Home</Link></li>
+          <li className={styles.linkDesktopWrapper}><Link href="/about">About</Link></li>
+          <li className={styles.linkDesktopWrapper}><Link href="/contact">Contact</Link></li>
+          <li className={styles.linkDesktopWrapper}><Link href="/projects">Project</Link></li> 
+        </ul>
+
     </div>
+    <div className={cx(styles.menuContainer, {
+        [styles.menuContainerOpen] : isOpen 
+      })}>
+        <ul className={cx(styles.listContainerMobile, {
+        })}>
+          <li className={styles.linkWrapperMobile}><Link href="/">Home</Link></li>
+          <li className={styles.linkWrapperMobile}><Link href="/about">About</Link></li>
+          <li className={styles.linkWrapperMobile}><Link href="/contact">Contact</Link></li>
+          <li className={styles.linkWrapperMobile}><Link href="/projects">Projects</Link></li> 
+        </ul>
+      </div>
+    </>
   )
 }
